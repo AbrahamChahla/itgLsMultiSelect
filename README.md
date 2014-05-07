@@ -1,4 +1,4 @@
-<h1 id="itgls-multi-select">itgLs - Multi-Select</h1>
+<h1 id="itgls-multi-select-tutorial">itgLs - Multi-Select Tutorial</h1>
 <h3 id="enhancing-your-lightswitch-list-tiles-and-table-controls">Enhancing your LightSwitch List, Tiles and Table controls</h3>
 <p>As of May 2014, Out of the Box LightSwitch list, tiles and table controls only allow for selection of a single item.</p>
 <p><strong>Until now!</strong></p>
@@ -28,7 +28,7 @@
 <li>Save your solution</li>
 <li>Over in your your Solution Explorer pain</li>
 <li>Add the following NuGet package to the HTML Client project<br><span style="margin-left: 30px;">lo-dash.js</li>
-<li>From our GitHub repository<br><span style="margin-left: 30px;">Add itgLs.js to your Scripts folder<br><span style="margin-left: 30px;">Add itgLs.css to your Content folder</li>
+<li>From our <a href="https://github.com/dwm9100b/itgLs">GitHub repository</a><br><span style="margin-left: 30px;">Add itgLs.js to your Scripts folder<br><span style="margin-left: 30px;">Add itgLs.css to your Content folder</li>
 <li>Now open up your default.htm file in the client project</li>
 <li>Add lo-dash.js followed by itgLs.js to the scripts section</li>
 <li>Add the itgLs.css as the last stylesheet</li>
