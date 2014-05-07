@@ -90,7 +90,7 @@ itgLs.list.selectAll(list);</code></pre>
 <li>Write my own method, name it: UnselectAllCustomers</li>
 <li>Edit the code and add the following<blockquote>
 <pre><code>var list = screen.findContentItem(&quot;Customers&quot;);
-itgLs.list.selectAll(List);</code></pre>
+itgLs.list.unselectAll(List);</code></pre>
 </blockquote>
 </li>
 <li>Save and run your application</li>
