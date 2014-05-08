@@ -64,8 +64,8 @@ itgLs.list.itemTap(list);</code></pre>
 <li>Double click the button to edit the code</li>
 <li>We&#39;re going to add a few lines<br><span style="margin-left: 30px;">Again, get the list contentItem<br><span style="margin-left: 30px;">Call our method to get the data, which returns an array of entities<br><span style="margin-left: 30px;">Then we&#39;ll display the data<blockquote>
 <pre><code>var list = screen.findContentItem(&quot;Customers&quot;);
-var count = itgLs.list.selectedCount(&quot;list&quot;);
-var selected = itgLs.list.selected(&quot;list&quot;);
+var count = itgLs.list.selectedCount(list);
+var selected = itgLs.list.selected(list);
 var text = &quot;Customers Selected\n\n&quot;;
 _.forEach(selected, function(item) {
       text += item.CustomerID + &quot; - &quot; + item.CompanyName + &quot;\n&quot;;
