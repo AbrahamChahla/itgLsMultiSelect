@@ -1,18 +1,18 @@
 ﻿/* ======================================================================================
-	Consolidate CSS file for the itgLs* series
+	Consolidate CSS file for the lsWires.js series
 
-	Last updated: 5-6-2014 @ 11:05a
+	Last updated: 5-12-14 @ 320p
    ====================================================================================== */
 
 
 
 /* ======================================================================================
-	itgLs.contentItem.helpers.enhancedListItemtap
+	lsWire.list.itemTap
 
 	This is a direct copy of ui-btn-active from light-theme-2.5.0.css
 	Modify as needed for your own theme 
    ====================================================================================== */
-.itg-selected-item {
+.lswire-selected-item {
     border: 1px solid #2A8DD4;
     background: #cde6f7 /*{global-active-background-color}*/;
     color: #222;
@@ -30,21 +30,21 @@
 
 
 /* ======================================================================================
-	itgLs.ui.helpers.enhancedListItemtap
+	lsWire.list.itemTap
 
 	For table row, remove the border when selecting a row 
    ====================================================================================== */
-.msls-tr.itg-selected-item {
+.msls-tr.lswire-selected-item {
 	border: none;
 }
 
 
 /* ======================================================================================
-	itgLs.ui.helpers.enhancedListItemtap
+	lsWire.list.itemTap
 
 	Remove the funky border when item has focus
    ====================================================================================== */
-.itg-selected-item .ui-focus, .ui-btn:focus {
+.lswire-selected-item .ui-focus, .ui-btn:focus {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
 	box-shadow:none;
@@ -52,7 +52,7 @@
 
 
 /* ======================================================================================
-	itgLs.ui.helpers.enhancedListItemtap
+	lsWire.list.itemTap
 
 	Remove the dotted border when a row has focus, we use colors for that
 	Comment it out if you like the border
@@ -66,7 +66,7 @@ tr.msls-table-row:focus {
 /* ======================================================================================
    ======================================================================================
    ======================================================================================
-	CSS for itgLsCheckbox
+	CSS for lsWire.checkbox
 
 	Inline comments should be pretty explanatory
 	This is for the Light Theme
@@ -75,25 +75,25 @@ tr.msls-table-row:focus {
    ====================================================================================== */
 
 
-/* The itgLs checkbox does not use the jquery mobile styling */
+/* The lsWire checkbox does not use the jquery mobile styling */
 /* ==========================================================*/
-.itgLs-checkbox {
+.lswire-checkbox {
 	clear: both;
 }
 
 	/* To make our checkbox symetrical when there is no accompaning text*/
-	.itgLs-checkbox.noLabelCheckbox {
+	.lswire-checkbox.noLabelCheckbox {
 		width: 20px !important;
 	}
 
 	/* Remove the jqeury mobile graphic checkbox */
-	.itgLs-checkbox .ui-icon {
+	.lswire-checkbox .ui-icon {
 		display: none;
 	}
 
 
 	/* Adjust the location of our actual checkbox control */
-	.itgLs-checkbox .ui-checkbox input {
+	.lswire-checkbox .ui-checkbox input {
 		top: 7px;
 		z-index: 99;
 		height: 20px;
@@ -105,7 +105,7 @@ tr.msls-table-row:focus {
 	}
 
 	/* Margins for our text/label */
-	.itgls-checkbox .ui-checkbox .ui-btn-text {
+	.lswire-checkbox .ui-checkbox .ui-btn-text {
 		left: 0 !important;
 	}
 
@@ -113,16 +113,16 @@ tr.msls-table-row:focus {
 	/* This is for the text to accompany the checkbox     */
 	/* we are moving margins to match other screen fields */
 	/* this brings the text closer to the checkbox        */
-	.itgLs-checkbox .ui-btn-icon-left .ui-btn-inner {
+	.lswire-checkbox .ui-btn-icon-left .ui-btn-inner {
 		padding-left: 30px;
 	}
 
 	/* Move the label/text over to the left by x number of pixels */
-	.itgLs-checkbox label {
+	.lswire-checkbox label {
 		padding-left: 5px;
 	}
 
-	.itgLs-checkbox .noLabelCheckbox label {
+	.lswire-checkbox .noLabelCheckbox label {
 		width: 0;
 		padding-left: 0;
 	}
@@ -159,7 +159,7 @@ tr.msls-table-row:focus {
 /* ==========================================================*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 
-	.itgLs-checkbox .ui-checkbox input {
+	.lswire-checkbox .ui-checkbox input {
 		top: 9px;
 		z-index: 99;
 		height: 20px;
@@ -184,6 +184,6 @@ tr.msls-table-row:focus {
 }
 
 /* Set the font size to whatever you are using as normalized screen font size */
-.itgls-checkbox .ui-fullsize .ui-btn-inner, .ui-fullsize .ui-btn-inner {
+.lswire-checkbox .ui-fullsize .ui-btn-inner, .ui-fullsize .ui-btn-inner {
 	font-size: 14px;
 }

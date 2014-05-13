@@ -20,7 +20,7 @@
           Kind="Group"
           View="Microsoft.LightSwitch.MobileWeb:TabPages">
           <ContentItem
-            Name="EmployeeList"
+            Name="MultipleLists"
             Kind="Group"
             View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
             <ContentItem
@@ -33,6 +33,10 @@
                 <ContentItem
                   Name="GetEmployees"
                   Kind="Command">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="Get Selected" />
+                  </ContentItem.Attributes>
                   <ContentItem.PropertySources>
                     <ControlPropertySource
                       Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
@@ -46,80 +50,130 @@
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="SelectAllEmployees"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="Select All" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                  Name="Group4"
+                  Kind="Group">
+                  <ContentItem
+                    Name="AllEmployees"
+                    Kind="Value"
+                    DataType=":Boolean?"
+                    View="Microsoft.LightSwitch.MobileWeb:ValueCustomControl">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Select All" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[SelectAllEmployees]" />
+                          <MemberExpression
+                            Member="BrowseEmployeesAndProducts/Properties[AllEmployees]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[AttachedLabelPosition]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="None"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="FitToContent"
+                            ResultType=":String" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="UnselectAllEmployees"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="Unselect All" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                  Name="Group5"
+                  Kind="Group">
+                  <ContentItem
+                    Name="LimitEmployees"
+                    Kind="Value"
+                    DataType=":Boolean?"
+                    View="Microsoft.LightSwitch.MobileWeb:ValueCustomControl">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Limit of 4" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[UnselectAllEmployees]" />
+                          <MemberExpression
+                            Member="BrowseEmployeesAndProducts/Properties[LimitEmployees]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[AttachedLabelPosition]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="None"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="FitToContent"
+                            ResultType=":String" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="SetEmployeeLimits"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="Set Limit" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                  Name="Group9"
+                  Kind="Group">
+                  <ContentItem
+                    Name="PersistEmployeeSelections"
+                    Kind="Value"
+                    DataType=":Boolean?"
+                    View="Microsoft.LightSwitch.MobileWeb:ValueCustomControl">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Persist Selections" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[SetEmployeeLimits]" />
+                          <MemberExpression
+                            Member="BrowseEmployeesAndProducts/Properties[PersistEmployeeSelections]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                </ContentItem>
-                <ContentItem
-                  Name="NoEmployeeLimits"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="No Limits" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[NoEmployeeLimits]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[AttachedLabelPosition]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="None"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
                 </ContentItem>
               </ContentItem>
               <ContentItem
@@ -241,17 +295,6 @@
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
                 </ContentItem>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <CallExpression
-                          Target="BrowseEmployeesAndProducts/Methods[Employees_ItemTap]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
               </ContentItem>
             </ContentItem>
             <ContentItem
@@ -266,7 +309,7 @@
                   Kind="Command">
                   <ContentItem.Attributes>
                     <DisplayName
-                      Value="GetSelected" />
+                      Value="Get Selected" />
                   </ContentItem.Attributes>
                   <ContentItem.PropertySources>
                     <ControlPropertySource
@@ -274,87 +317,137 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[GetSelectedProducts]" />
+                            Target="BrowseEmployeesAndProducts/Methods[GetProducts]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="SelectAllProducts"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="Select All" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                  Name="Group6"
+                  Kind="Group">
+                  <ContentItem
+                    Name="AllProducts"
+                    Kind="Value"
+                    DataType=":Boolean?"
+                    View="Microsoft.LightSwitch.MobileWeb:ValueCustomControl">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Select All" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[SelectAllProducts]" />
+                          <MemberExpression
+                            Member="BrowseEmployeesAndProducts/Properties[AllProducts]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[AttachedLabelPosition]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="None"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="FitToContent"
+                            ResultType=":String" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="UnselectAllProducts"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="Unselect All" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                  Name="Group7"
+                  Kind="Group">
+                  <ContentItem
+                    Name="LimitProducts"
+                    Kind="Value"
+                    DataType=":Boolean?"
+                    View="Microsoft.LightSwitch.MobileWeb:ValueCustomControl">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Limit of 4" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[UnselectAllProducts]" />
+                          <MemberExpression
+                            Member="BrowseEmployeesAndProducts/Properties[LimitProducts]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[AttachedLabelPosition]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="None"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="FitToContent"
+                            ResultType=":String" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem
-                  Name="SetProductLimits"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="Set Limit" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                  Name="Group8"
+                  Kind="Group">
+                  <ContentItem
+                    Name="PersistProductSelections"
+                    Kind="Value"
+                    DataType=":Boolean?"
+                    View="Microsoft.LightSwitch.MobileWeb:ValueCustomControl">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Persist Selections" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[SetProductLimits]" />
+                          <MemberExpression
+                            Member="BrowseEmployeesAndProducts/Properties[PersistProductSelections]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                </ContentItem>
-                <ContentItem
-                  Name="NoProductLimits"
-                  Kind="Command">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="No Limits" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <CallExpression
-                            Target="BrowseEmployeesAndProducts/Methods[NoProductLimits]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[AttachedLabelPosition]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="None"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
                 </ContentItem>
               </ContentItem>
               <ContentItem
@@ -432,17 +525,6 @@
                     </ContentItem.DataSource>
                   </ContentItem>
                 </ContentItem>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <CallExpression
-                          Target="BrowseEmployeesAndProducts/Methods[Products_ItemTap]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
               </ContentItem>
             </ContentItem>
             <ContentItem.CommandItems>
@@ -524,33 +606,14 @@
       <ScreenMethod
         Name="GetEmployees" />
       <ScreenMethod
-        Name="SelectAllEmployees" />
-      <ScreenMethod
-        Name="UnselectAllEmployees" />
-      <ScreenMethod
-        Name="SetEmployeeLimits" />
-      <ScreenMethod
-        Name="NoEmployeeLimits" />
-      <ScreenMethod
-        Name="GetSelectedProducts" />
-      <ScreenMethod
-        Name="SelectAllProducts" />
-      <ScreenMethod
-        Name="UnselectAllProducts" />
-      <ScreenMethod
-        Name="SetProductLimits" />
-      <ScreenMethod
-        Name="NoProductLimits" />
-      <ScreenMethod
-        Name="Employees_ItemTap" />
-      <ScreenMethod
-        Name="Products_ItemTap" />
+        Name="GetProducts" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
         Name="Employees"
+        DisablePaging="True"
         DisableSearch="True"
-        PageSize="45"
+        PageSize="100"
         PropertyType="CollectionView$Employee">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
@@ -576,6 +639,7 @@
       </ScreenCollectionProperty>
       <ScreenCollectionProperty
         Name="Products"
+        DisablePaging="True"
         DisableSearch="True"
         PageSize="45"
         PropertyType="CollectionView$Product">
@@ -601,6 +665,24 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="AllEmployees"
+        PropertyType=":Boolean?" />
+      <ScreenProperty
+        Name="AllProducts"
+        PropertyType=":Boolean?" />
+      <ScreenProperty
+        Name="LimitEmployees"
+        PropertyType=":Boolean?" />
+      <ScreenProperty
+        Name="LimitProducts"
+        PropertyType=":Boolean?" />
+      <ScreenProperty
+        Name="PersistProductSelections"
+        PropertyType=":Boolean?" />
+      <ScreenProperty
+        Name="PersistEmployeeSelections"
+        PropertyType=":Boolean?" />
     </Screen.Properties>
   </Screen>
   <Application.Methods>

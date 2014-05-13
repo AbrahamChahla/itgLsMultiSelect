@@ -1,25 +1,23 @@
 ﻿/// <reference path="~/GeneratedArtifacts/viewModel.js" />
-/// <reference path="../scripts/itgls.js" />
+/// <reference path="../scripts/lodash.js" />
+/// <reference path="../scripts/lswires.js" />
 
-myapp.BrowseCustomers.Customers_ItemTap_execute = function (screen) {
+myapp.BrowseCustomers.Customers_postRender = function (element, contentItem) {
 
-	// Get our list
-	var list = screen.findContentItem("Customers");
-
-	// Call our itemTap, enabling multi-select
-	itgLs.list.itemTap(list);
+	// Enable multi-item selection on this tile control
+	lsWire.list.enableMultiSelect(contentItem);
 
 };
 myapp.BrowseCustomers.GetCustomers_execute = function (screen) {
 
-	// Ok... again get our list
+	// Ok... get our list
 	var list = screen.findContentItem("Customers");
 
 	// Call our helper function to get a count of selected items
-	var count = itgLs.list.selectedCount(list);
+	var count = lsWire.list.selectedCount(list);
 
 	// Call our helper function to get an array of selected items
-	var selected = itgLs.list.selected(list);
+	var selected = lsWire.list.selected(list);
 
 	// To show we did get multi-select with real data returned, lets just do a popup
 	var text = "Customers Selected\n\n";
@@ -34,39 +32,67 @@ myapp.BrowseCustomers.GetCustomers_execute = function (screen) {
 	window.alert(text);
 
 };
-myapp.BrowseCustomers.SelectAllCustomers_execute = function (screen) {
+myapp.BrowseCustomers.SelectAll_render = function (element, contentItem) {
 
-	// Get our list
-	var list = screen.findContentItem("Customers");
+	// Render a checkbox
+	lsWire.checkbox.render(element, contentItem);
 
-	// Select all items in the list
-	itgLs.list.selectAll(list);
-
-};
-myapp.BrowseCustomers.UnselectAllCustomers_execute = function (screen) {
-
-	// Get our list
-	var list = screen.findContentItem("Customers");
-
-	// Unselect all items in the list
-	itgLs.list.unselectAll(list);
+	// When the checkbox changes state, either select all or not
+	contentItem.dataBind("screen.SelectAll", function (newValue) {
+		if (newValue != undefined) {
+			var list = contentItem.screen.findContentItem("Customers");
+			lsWire.list.selectAll(list, newValue);
+		}
+	});
 
 };
-myapp.BrowseCustomers.SetLimit_execute = function (screen) {
+myapp.BrowseCustomers.SetLimits_render = function (element, contentItem) {
 
-	// Get our list
-	var list = screen.findContentItem("Customers");
+	// Render our checkbox
+	lsWire.checkbox.render(element, contentItem);
 
-	// Unselect all previously selected items for selection integrity
-	itgLs.list.unselectAll(list);
+	// When the checkbox changes state, set or remove our limits
+	contentItem.dataBind("screen.SetLimits", function (newValue) {
+		
+		if (newValue !== undefined) {
 
-	// Set our property to limit number of selections allowed
-	screen.findContentItem("Customers").totalSelectionsAllowed = 4;
+			// Our dependent item
+			var selectAll = contentItem.screen.findContentItem("SelectAll");
 
-};
-myapp.BrowseCustomers.NoLimits_execute = function (screen) {
+			// Get our list
+			var list = contentItem.screen.findContentItem("Customers");
 
-	// Remove cap on number of selections
-	screen.findContentItem("Customers").totalSelectionsAllowed = null;
+			// Current count of selected items
+			var count = lsWire.list.selectedCount(list);
+
+			// If the checkbox is selected, limit to 4 items
+			if (newValue != undefined && newValue === true) {
+
+				// Set our limit, returns the limit count
+				var ttl = lsWire.list.totalSelectionsAllowed(list, 4);
+
+				// if select all was set, checked
+				if (selectAll.value === true)
+
+					// set the property to false, dataBinding will do the rest
+					contentItem.screen.SelectAll = false;
+
+				// Else is the current count greater than our limit?
+				else if (count > ttl) {
+
+					// Count is greater, so unselect all items
+					lsWire.list.selectAll(list, false);
+				}
+
+				// Since we are limiting, disable the select all checkbox
+				selectAll.isEnabled = false;
+			} else {
+
+				// Limit was unselected, renable select all and remove limits
+				selectAll.isEnabled = true;
+				lsWire.list.totalSelectionsAllowed(list, null);
+			}
+		}
+	});
 
 };
